@@ -10,3 +10,5 @@ How to use:
 3. Make sure the dump folder, output folder, and game are set correctly in the XXMI panel
 4. At the bottom of the main XXMI panel, click the button for the buffer you want to export
 5. Create an ini file to replace whichever buffer(s) you exported and any textures you want to use
+
+![Example of editing Chiori's face texcoord to allow different colored eyelashes](preview.png)
