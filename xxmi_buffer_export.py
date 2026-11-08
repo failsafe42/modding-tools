@@ -6,7 +6,7 @@ bl_info = {
     'location': 'XXMI Tools panel',
     'description': 'Exports a 3DMigoto buffer that is compatible with the originally imported model.',
     'category': 'Export',
-	'version': (1, 0, 0)
+	'version': (1, 0, 1)
 }
 
 import os
@@ -174,7 +174,7 @@ def export_3dmigoto_buffer(xxmi, selected, semantics, suffix):
 						semanticData.extend([0]*4)
 						del semanticData[4:]
 					elif s.startswith('COLOR'):
-						semanticData = tuple(int(channel*255) for channel in obj.data.attributes['COLOR'].data[loopdict[v.index]].color_srgb)
+						semanticData = tuple(channel if all(c in packCode['FLOAT'].values() for c in semanticPackInfo[s]) else int(channel*255) for channel in obj.data.attributes['COLOR'].data[loopdict[v.index]].color_srgb)
 					elif s.startswith('TEXCOORD'):
 						uvindex = int(s.removeprefix('TEXCOORD'))
 						semanticData = list(obj.data.uv_layers[uvindex].uv[loopdict[v.index]].vector)
